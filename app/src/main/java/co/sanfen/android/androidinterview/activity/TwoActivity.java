@@ -2,15 +2,26 @@ package co.sanfen.android.androidinterview.activity;
 
 import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import co.sanfen.android.androidinterview.R;
+import co.sanfen.android.androidinterview.activity.adapter.MyFragmentAdapter;
+import co.sanfen.android.androidinterview.activity.fragment.OneFragment;
 
 public class TwoActivity extends AppCompatActivity {
 
     private static final String TAG = "TwoActivity";
+
+    ViewPager vp;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +29,7 @@ public class TwoActivity extends AppCompatActivity {
         Log.e(TAG, "onCreate");
         setContentView(R.layout.activity_two);
         setTitle(TAG);
+
     }
 
     @Override
@@ -61,6 +73,15 @@ public class TwoActivity extends AppCompatActivity {
     public void onContentChanged() {
         super.onContentChanged();
         Log.e(TAG, "onContentChanged");
+        ViewPager vp = findViewById(R.id.viewpager);
+        List<Fragment> list = new ArrayList<>();
+        list.add(OneFragment.newInstance("OneFragment"));
+        list.add(OneFragment.newInstance("TwoFragment"));
+        list.add(OneFragment.newInstance("ThreeFragment"));
+        list.add(OneFragment.newInstance("FourFragment"));
+        list.add(OneFragment.newInstance("FiveFragment"));
+        MyFragmentAdapter adapter = new MyFragmentAdapter(getSupportFragmentManager(), list);
+        vp.setAdapter(adapter);
     }
 
     @Override
