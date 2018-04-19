@@ -19,6 +19,8 @@ import co.sanfen.android.androidinterview.R;
 public class OneFragment extends Fragment {
     private String TAG;
     TextView mTvName;
+
+    private boolean mIsPrepared, mIsInited;
     public static final String NAME= "name";
     public OneFragment() {
         // Required empty public constructor
@@ -53,8 +55,27 @@ public class OneFragment extends Fragment {
         View inflate = inflater.inflate(R.layout.fragment_one, container, false);
         mTvName = inflate.findViewById(R.id.tv_name);
         mTvName.setText(TAG);
+        mIsPrepared = true;
+        lazyLoad();
         return inflate;
     }
+
+    public void lazyLoad() {
+        if (getUserVisibleHint() && mIsPrepared && !mIsInited) {
+            //异步初始化，在初始化后显示正常UI
+            loadData();
+        }
+    }
+
+    private void loadData() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                mIsInited = true;
+            }
+        }).start();
+    }
+
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
@@ -80,9 +101,17 @@ public class OneFragment extends Fragment {
         Log.e(TAG, "onResume");
     }
 
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        Log.e(TAG, "onStop");
+    }
+
     @Override
     public void onDestroyView() {
         super.onDestroyView();
+        mIsPrepared = false;
         Log.e(TAG, "onDestroyView");
     }
 
@@ -97,4 +126,11 @@ public class OneFragment extends Fragment {
         super.onDetach();
         Log.e(TAG, "onDetach");
     }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        Log.e(TAG, "onSaveInstanceState");
+    }
+
 }
