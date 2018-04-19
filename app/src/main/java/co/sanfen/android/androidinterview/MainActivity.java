@@ -15,6 +15,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import co.sanfen.android.androidinterview.activity.OneActivity;
+import co.sanfen.android.androidinterview.service.ServiceActivity;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -79,7 +80,7 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_camera) {
             jumpActivity(OneActivity.class);
         } else if (id == R.id.nav_gallery) {
-
+            jumpActivity(ServiceActivity.class);
         } else if (id == R.id.nav_slideshow) {
 
         } else if (id == R.id.nav_manage) {

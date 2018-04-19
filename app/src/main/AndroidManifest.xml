@@ -19,7 +19,20 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.OneActivity" />
-        <activity android:name=".activity.TwoActivity"></activity>
+        <activity android:name=".activity.TwoActivity" />
+
+        <service
+            android:name=".service.TestService"
+            android:enabled="true"
+            android:exported="true" />
+        <service
+            android:name=".service.TestIntentService"
+            android:exported="false" />
+
+        <activity
+            android:name=".service.ServiceActivity"
+            android:label="@string/title_activity_service"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
