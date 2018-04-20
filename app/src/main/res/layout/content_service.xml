@@ -8,4 +8,17 @@
     tools:context="co.sanfen.android.androidinterview.service.ServiceActivity"
     tools:showIn="@layout/activity_service">
 
+    <Button
+        android:id="@+id/btn_start"
+        android:text="startService"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Button
+        app:layout_constraintLeft_toRightOf="@id/btn_start"
+        android:text="bindService"
+        android:id="@+id/btn_bind"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
 </android.support.constraint.ConstraintLayout>
