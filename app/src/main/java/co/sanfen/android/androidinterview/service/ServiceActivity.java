@@ -19,6 +19,8 @@ public class ServiceActivity extends AppCompatActivity {
     private static final String TAG = "ServiceActivity";
 
     boolean isBind = false;
+    boolean isStart = false;
+    Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,8 +42,9 @@ public class ServiceActivity extends AppCompatActivity {
         findViewById(R.id.btn_start).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ServiceActivity.this, TestService.class);
+                intent = new Intent(ServiceActivity.this, TestService.class);
                 startService(intent);
+                isStart = true;
             }
         });
 
@@ -50,6 +53,13 @@ public class ServiceActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(ServiceActivity.this, TestService.class);
                 bindService(intent, conn, BIND_AUTO_CREATE);
+            }
+        });
+
+        findViewById(R.id.btn_intent).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TestIntentService.startActionBaz(ServiceActivity.this, "111", "222");
             }
         });
     }
@@ -73,5 +83,7 @@ public class ServiceActivity extends AppCompatActivity {
         super.onDestroy();
         if (isBind)
             unbindService(conn);
+        if (isStart)
+            stopService(intent);
     }
 }

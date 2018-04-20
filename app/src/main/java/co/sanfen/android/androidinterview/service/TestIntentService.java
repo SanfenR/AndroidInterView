@@ -3,6 +3,7 @@ package co.sanfen.android.androidinterview.service;
 import android.app.IntentService;
 import android.content.Intent;
 import android.content.Context;
+import android.util.Log;
 
 /**
  * An {@link IntentService} subclass for handling asynchronous task requests in
@@ -12,12 +13,13 @@ import android.content.Context;
  * helper methods.
  */
 public class TestIntentService extends IntentService {
-    // TODO: Rename actions, choose action names that describe tasks that this
+
+    private static final String TAG = "TestIntentService";
+
     // IntentService can perform, e.g. ACTION_FETCH_NEW_ITEMS
     private static final String ACTION_FOO = "co.sanfen.android.androidinterview.service.action.FOO";
     private static final String ACTION_BAZ = "co.sanfen.android.androidinterview.service.action.BAZ";
 
-    // TODO: Rename parameters
     private static final String EXTRA_PARAM1 = "co.sanfen.android.androidinterview.service.extra.PARAM1";
     private static final String EXTRA_PARAM2 = "co.sanfen.android.androidinterview.service.extra.PARAM2";
 
@@ -31,7 +33,6 @@ public class TestIntentService extends IntentService {
      *
      * @see IntentService
      */
-    // TODO: Customize helper method
     public static void startActionFoo(Context context, String param1, String param2) {
         Intent intent = new Intent(context, TestIntentService.class);
         intent.setAction(ACTION_FOO);
@@ -46,7 +47,6 @@ public class TestIntentService extends IntentService {
      *
      * @see IntentService
      */
-    // TODO: Customize helper method
     public static void startActionBaz(Context context, String param1, String param2) {
         Intent intent = new Intent(context, TestIntentService.class);
         intent.setAction(ACTION_BAZ);
@@ -76,7 +76,7 @@ public class TestIntentService extends IntentService {
      * parameters.
      */
     private void handleActionFoo(String param1, String param2) {
-
+        Log.e(TAG, "handleActionFoo" +  param1 + param2);
     }
 
     /**
@@ -84,6 +84,6 @@ public class TestIntentService extends IntentService {
      * parameters.
      */
     private void handleActionBaz(String param1, String param2) {
-
+        Log.e(TAG, "handleActionBaz" + param1 + param2);
     }
 }
