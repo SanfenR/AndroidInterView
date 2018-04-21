@@ -14,6 +14,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import co.sanfen.android.androidinterview.Intent.IntentActivity;
 import co.sanfen.android.androidinterview.activity.OneActivity;
 import co.sanfen.android.androidinterview.contentprovider.CpActivity;
 import co.sanfen.android.androidinterview.receiver.BroadcastReceiverActivity;
@@ -88,7 +89,7 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_manage) {
             jumpActivity(BroadcastReceiverActivity.class);
         } else if (id == R.id.nav_share) {
-
+            jumpActivity(IntentActivity.class);
         } else if (id == R.id.nav_send) {
 
         }
