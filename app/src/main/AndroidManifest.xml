@@ -2,8 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="co.sanfen.android.androidinterview">
 
-    <uses-permission android:name="android.permission.READ_CONTACTS"/>
-
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
 
     <application
         android:allowBackup="true"
@@ -36,7 +35,8 @@
             android:name=".service.ServiceActivity"
             android:label="@string/title_activity_service"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".contentprovider.CpActivity"/>
+        <activity android:name=".contentprovider.CpActivity" />
+        <activity android:name=".receiver.BroadcastReceiverActivity"></activity>
     </application>
 
 </manifest>
