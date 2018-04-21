@@ -15,6 +15,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import co.sanfen.android.androidinterview.activity.OneActivity;
+import co.sanfen.android.androidinterview.contentprovider.CpActivity;
 import co.sanfen.android.androidinterview.service.ServiceActivity;
 
 public class MainActivity extends AppCompatActivity
@@ -82,7 +83,7 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_gallery) {
             jumpActivity(ServiceActivity.class);
         } else if (id == R.id.nav_slideshow) {
-
+            jumpActivity(CpActivity.class);
         } else if (id == R.id.nav_manage) {
 
         } else if (id == R.id.nav_share) {
