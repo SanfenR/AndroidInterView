@@ -38,7 +38,8 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".contentprovider.CpActivity" />
         <activity android:name=".receiver.BroadcastReceiverActivity" />
-        <activity android:name=".Intent.IntentActivity"></activity>
+        <activity android:name=".Intent.IntentActivity" />
+        <activity android:name=".view.ViewActivity"></activity>
     </application>
 
 </manifest>

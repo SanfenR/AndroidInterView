@@ -19,6 +19,7 @@ import co.sanfen.android.androidinterview.activity.OneActivity;
 import co.sanfen.android.androidinterview.contentprovider.CpActivity;
 import co.sanfen.android.androidinterview.receiver.BroadcastReceiverActivity;
 import co.sanfen.android.androidinterview.service.ServiceActivity;
+import co.sanfen.android.androidinterview.view.ViewActivity;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -90,8 +91,6 @@ public class MainActivity extends AppCompatActivity
             jumpActivity(BroadcastReceiverActivity.class);
         } else if (id == R.id.nav_share) {
             jumpActivity(IntentActivity.class);
-        } else if (id == R.id.nav_send) {
-
         }
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
@@ -101,6 +100,14 @@ public class MainActivity extends AppCompatActivity
     public void jumpActivity(Class clazz){
         Intent intent = new Intent(this, clazz);
         startActivity(intent);
+    }
+
+    public void onViewClick(View view) {
+        switch (view.getId()) {
+            case R.id.btn_view:
+                jumpActivity(ViewActivity.class);
+                break;
+        }
     }
 
 }

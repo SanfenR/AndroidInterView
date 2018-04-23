@@ -16,7 +16,8 @@
 
     <Button
         android:id="@+id/btn_add_calendar"
-        android:text="设置闹钟"
+        android:text="设置日历"
+        app:layout_constraintLeft_toRightOf="@id/btn_set_alarm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="onViewClick"
