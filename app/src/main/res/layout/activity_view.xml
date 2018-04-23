@@ -6,4 +6,13 @@
     android:layout_height="match_parent"
     tools:context="co.sanfen.android.androidinterview.view.ViewActivity">
 
+    <co.sanfen.android.androidinterview.view.CustomViewGroup
+        android:layout_width="200dp"
+        android:layout_height="200dp">
+        <co.sanfen.android.androidinterview.view.CustomView
+            android:id="@+id/view_test"
+            android:layout_width="100dp"
+            android:layout_height="100dp" />
+    </co.sanfen.android.androidinterview.view.CustomViewGroup>
+
 </android.support.constraint.ConstraintLayout>
